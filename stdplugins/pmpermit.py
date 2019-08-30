@@ -18,7 +18,7 @@ borg.storage.PREV_REPLY_MESSAGE = {}
 BAALAJI_TG_USER_BOT = "My Master hasn't approved you to PM."
 TG_COMPANION_USER_BOT = "Please wait for his response and don't spam his PM."
 UNIBORG_USER_BOT_WARN_ZERO = "I am currently offline. Please do not SPAM me."
-UNIBORG_USER_BOT_NO_WARN = "Bleep Blop! This is a Bot. Don't be afraid.                                                                            `My Master will answer to your message soon. Please wait for my response and don't spam my PM. Thanks`"
+UNIBORG_USER_BOT_NO_WARN = "Bleep Blop! This is a Bot. Don't be afraid.                                                                          `My Master will answer to your message soon. Please wait for my response and don't spam my PM. Thanks`"
 
 
 @borg.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
@@ -53,7 +53,7 @@ async def monito_p_m_s(event):
             borg.storage.PREV_REPLY_MESSAGE[chat.id] = r
 
 
-@borg.on(admin_cmd("approvepm ?(.*)"))
+@borg.on(admin_cmd(pattern="approvepm ?(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -73,7 +73,7 @@ async def approve_p_m(event):
                 await event.delete()
 
 
-@borg.on(admin_cmd("blockpm ?(.*)"))
+@borg.on(admin_cmd(pattern="blockpm ?(.*)"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
@@ -88,7 +88,7 @@ async def approve_p_m(event):
                 await borg(functions.contacts.BlockRequest(chat.id))
 
 
-@borg.on(admin_cmd("list approved pms"))
+@borg.on(admin_cmd(pattern="list approved pms"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
