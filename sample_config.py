@@ -101,6 +101,10 @@ class Config(object):
     # VeryStream only supports video formats
     VERY_STREAM_LOGIN = os.environ.get("VERY_STREAM_LOGIN", None)
     VERY_STREAM_KEY = os.environ.get("VERY_STREAM_KEY", None)
+    #MongoDB
+    MONGO_URI = os.environ.get("MONGO_URI", None)
+    #Lydia API
+    LYDIA_API = os.environ.get("LYDIA_API",None)
     # Google Drive ()
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID", None)
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET", None)
