@@ -47,10 +47,6 @@
       "description": "Join https://t.me/IntellivoidDev and send activateapi and follow instructions",
       "required": false
     },
-    "MONGO_URI":{
-      "description": "join and follow instructions",
-      "required":" false
-    },
     "TMP_DOWNLOAD_DIRECTORY": {
       "description": "This is required for the plugins involving the file system.",
       "value": "./DOWNLOADS/",
