@@ -44,7 +44,7 @@
       "required": false
     },
     "LYDIA_API":{
-      "description": "Join https://t.me/IntellivoidDev and send activateapi and follow instructions",
+      "description": "Join https://t.me/IntellivoidDev and send #activateapi and follow instructions",
       "required": false
     },
     "TMP_DOWNLOAD_DIRECTORY": {
@@ -56,6 +56,10 @@
       "description": "This is required for the speech to text module. Get your USERNAME from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html",
       "required": false
     },
+    "MONGO_URI":{
+      "description": "Join https://t.me/IntellivoidDev and send #activateapi and follow instructions",
+      "required": false
+    },  
     "IBM_WATSON_CRED_PASSWORD": {
       "description": "This is required for the speech to text module. Get your PASSWORD from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html",
       "required": false
