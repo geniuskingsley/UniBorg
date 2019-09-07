@@ -129,14 +129,6 @@
       "value": "504501114 331210651",
       "required": false
     },
-    "LYDIA_API":{
-      "description": "Join https://t.me/IntellivoidDev and send #activateapi and follow instructions.",
-      "required": false
-    },
-    "MONGO_URI":{
-      "description": "join https://t.me/c/1220993104/268218 and follow instructions",
-      "required":" false
-    },
     "UB_BLACK_LIST_CHAT": {
       "description": "set blacklist_chats where you do not want userbot features",
       "value": "-1001220993104 -1001365798550 -1001158304289",
