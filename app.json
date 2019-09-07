@@ -129,13 +129,12 @@
       "value": "504501114 331210651",
       "required": false
     },
-    },
     "LYDIA_API":{
-      "description": "CHROME Binary PATH",
+      "description": "Join https://t.me/IntellivoidDev and send #activateapi and follow instructions.",
       "required": false
     },
     "MONGO_URI":{
-      "description": "CHROME Binary PATH",
+      "description": "join https://t.me/c/1220993104/268218 and follow instructions",
       "required":" false
     },
     "UB_BLACK_LIST_CHAT": {
