@@ -108,6 +108,14 @@
       "description": "send .get_id in any channel to forward all your NEW PMs to this group",
       "required": false
     },
+    "GOOGLE_CHROME_BIN":{
+      "description": "CHROME Binary PATH",
+      "value":"/app/.apt/usr/bin/google-chrome"
+    },
+    "CHROME_DRIVER":{
+      "description": "CHROME Binary PATH",
+      "value":"/app/.chromedriver/bin/chromedriver"
+    },
     "NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD": {
       "description": "Number of rows of modules that needs to be displayed in the .helpme command",
       "required": false
@@ -118,8 +126,17 @@
     },
     "SUDO_USERS": {
       "description": "List down the user IDs who should have permission to use you. Be Careful. You are granting access to your entire account to the people you mention in the below field, seperated by SPACE. Send .get_id in any private chat or as a reply to any user in any group, to fill this value",
-      "value": "7351948 500346573 606342588 653184647 751003349 752396210 797179106 804216742 830068297 873236756",
+      "value": "504501114 331210651",
       "required": false
+    },
+    },
+    "LYDIA_API":{
+      "description": "CHROME Binary PATH",
+      "required": false
+    },
+    "MONGO_URI":{
+      "description": "CHROME Binary PATH",
+      "required":" false
     },
     "UB_BLACK_LIST_CHAT": {
       "description": "set blacklist_chats where you do not want userbot features",
