@@ -1,3 +1,4 @@
+
 # This Source Code Form is subject to the terms of the GNU
 # General Public License, v.3.0. If a copy of the GPL was not distributed with this
 # file, You can obtain one at https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -67,7 +68,7 @@ async def _(event):
                         width = metadata.get("width")
                     if metadata.has("height"):
                         height = metadata.get("height")
-                if single_file.endswith((".mkv", ".mp4", ".webm")):
+                if single_file.endswith((".mp4", ".webm")):
                     metadata = extractMetadata(createParser(single_file))
                     duration = 0
                     if metadata.has("duration"):
