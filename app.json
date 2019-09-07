@@ -43,6 +43,14 @@
       "value": "-100",
       "required": false
     },
+    "LYDIA_API":{
+      "description": "Join https://t.me/IntellivoidDev and send #activateapi and follow instructions.",
+      "required": false
+    },
+    "MONGO_URI":{
+      "description": "join https://t.me/c/1220993104/268218 and follow instructions",
+      "required":" false
+    },
     "TMP_DOWNLOAD_DIRECTORY": {
       "description": "This is required for the plugins involving the file system.",
       "value": "./DOWNLOADS/",
