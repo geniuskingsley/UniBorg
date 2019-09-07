@@ -9,7 +9,7 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://gitlab.com/SpEcHiDe/UniBorg",
+  "repository": "https://github.com/Somto811/UniBorg",
   "website": "https://telegram.dog/UniBorg",
   "success_url": "https://t.me/UniBorg/5",
   "env": {
@@ -48,7 +48,7 @@
       "required": false
     },
     "MONGO_URI":{
-      "description": "join https://t.me/c/1220993104/268218 and follow instructions",
+      "description": "join and follow instructions",
       "required":" false
     },
     "TMP_DOWNLOAD_DIRECTORY": {
