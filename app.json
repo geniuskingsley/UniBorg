@@ -44,7 +44,7 @@
       "required": false
     },
     "LYDIA_API":{
-      "description": "Join https://t.me/IntellivoidDev and send #activateapi and follow instructions",
+      "description": "Join https://t.me/IntellivoidDev and send #activateapi and follow the instructions",
       "required": false
     },
     "TMP_DOWNLOAD_DIRECTORY": {
@@ -57,7 +57,7 @@
       "required": false
     },
     "MONGO_URI":{
-      "description": "Join https://t.me/IntellivoidDev and send #activateapi and follow instructions",
+      "description": "Join https://t.me/c/1325669151/55 and follow the instructions",
       "required": false
     },  
     "IBM_WATSON_CRED_PASSWORD": {
