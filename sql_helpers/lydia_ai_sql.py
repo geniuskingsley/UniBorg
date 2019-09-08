@@ -47,3 +47,28 @@ def add_s(
     user_id,
     chat_id,
     session_id,
+    session_expires
+):
+    adder = SESSION.query(LydiaAI).get((user_id, chat_id))
+    if adder:
+        adder.session_id = session_id
+        adder.session_expires = session_expires
+    else:
+        adder = LydiaAI(
+            user_id,
+            chat_id,
+            session_id,
+            session_expires
+        )
+    SESSION.add(adder)
+    SESSION.commit()
+
+
+def remove_s(
+    user_id,
+    chat_id
+):
+    note = SESSION.query(LydiaAI).get((user_id, chat_id))
+    if note:
+        SESSION.delete(note)
+        SESSION.commit()
