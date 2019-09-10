@@ -28,3 +28,4 @@ google-api-python-client
 oauth2client
 httplib2
 coffeehouse==1.0.4
+humanize 
