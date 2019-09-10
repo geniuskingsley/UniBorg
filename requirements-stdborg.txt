@@ -31,3 +31,5 @@ coffeehouse==1.0.4
 humanize 
 git+https://github.com/LonamiWebs/Telethon
 git+https://github.com/ahupp/python-magic
+pymongo
+PyGithub
