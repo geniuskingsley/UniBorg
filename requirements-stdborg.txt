@@ -29,4 +29,5 @@ oauth2client
 httplib2
 coffeehouse==1.0.4
 humanize 
-github
+git+https://github.com/LonamiWebs/Telethon
+git+https://github.com/ahupp/python-magic
