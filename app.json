@@ -56,8 +56,8 @@
       "description": "This is required for the speech to text module. Get your USERNAME from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html",
       "required": false
     },
-    "MONGO_URI":{
-      "description": "Join https://t.me/c/1325669151/55 and follow the instructions",
+    "MAX_FLOOD_IN_P_M_s": {
+      "description": "define the number of messages that should be considered as 'spam' in PMs",
       "required": false
     },  
     "IBM_WATSON_CRED_PASSWORD": {
