@@ -63,6 +63,9 @@ class Config(object):
     # Get your own API key from https://www.remove.bg/ or
     # feel free to use http://telegram.dog/Remove_BGBot
     REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
+    SLAP_USERNAME = os.environ.get("SLAP_USERNAME", None)
+    GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
+    GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
     # For Databases
     # can be None in which case plugins requiring
     # DataBase would not work
@@ -96,6 +99,8 @@ class Config(object):
     GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
     #
     LYDIA_API = os.environ.get("LYDIA_API", None)
+    #MongoDB
+    MONGO_URI = os.environ.get("MONGO_URI", None)
     #
     # define "spam" in PMs
     MAX_FLOOD_IN_P_M_s = int(os.environ.get("MAX_FLOOD_IN_P_M_s", 3))
