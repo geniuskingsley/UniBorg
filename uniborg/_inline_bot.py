@@ -6,7 +6,7 @@ import asyncio
 import json
 import random
 import re
-from telethon import events, custom
+from telethon import events, errors, custom
 from uniborg.util import admin_cmd, humanbytes
 
 
@@ -195,18 +195,62 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 buttons=[custom.Button.url("Source Code", "https://da.gd/YQgR7")],
                 link_preview=True
             )
+        elif query.startswith("c_button"):
+            BTN_URL_REGEX = re.compile(r"(\{([^\[]+?)\}\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
+            reply_message = query.replace("c_button ", "")
+            markdown_note = reply_message
+            prev = 0
+            note_data = ""
+            buttons = []
+            for match in BTN_URL_REGEX.finditer(markdown_note):
+                # Check if btnurl is escaped
+                n_escapes = 0
+                to_check = match.start(1) - 1
+                while to_check > 0 and markdown_note[to_check] == "\\":
+                    n_escapes += 1
+                    to_check -= 1
+        
+                # if even, not escaped -> create button
+                if n_escapes % 2 == 0:
+                    # create a thruple with button label, url, and newline status
+                    buttons.append((match.group(2), match.group(3), bool(match.group(4))))
+                    note_data += markdown_note[prev:match.start(1)]
+                    prev = match.end(1)
+        
+                # if odd, escaped -> move along
+                else:
+                    note_data += markdown_note[prev:to_check]
+                    prev = match.start(1) - 1
+            else:
+                note_data += markdown_note[prev:]
+
+            message_text = note_data.strip()
+            tl_ib_buttons = build_keyboard(buttons)
+        
+            # logger.info(message_text)
+            # logger.info(tl_ib_buttons)
+
+            try:
+                result = builder.article(
+                    "Button Generated" if tl_ib_buttons else "Proccessing..." ,
+                    text=message_text if tl_ib_buttons else "Error",
+                    buttons=tl_ib_buttons if tl_ib_buttons else [custom.Button.inline("Error", "Please Do Not Press Proccessing... Again")],
+                    link_preview=True
+                )
+            except ButtonUrlInvalidError:
+                pass
         else:
             result = builder.article(
                 "© @UniBorg",
                 text="""Hi there. I will introduce you to UniBorg
 You can log-in as Bot or User and do many cool things with your Telegram account.
 
-All instructions to run @UniBorg in your device has been explained in https://github.com/Somto811/UniBorg""",
+All instructions to run @UniBorg in your device has been explained in https://github.com/SnapDragon7410/UniBorg""",
                 buttons=[
-                    [custom.Button.url("Contact the Creator", "https://telegram.dog/loxxi"), custom.Button.url(
+                    [custom.Button.url("Contact the Creator", "https://telegram.dog/snappy101"), custom.Button.url(
                         "Tutorial", "https://telegra.ph/Tutorial-07-26")],
                     [custom.Button.url(
-                        "Source Code", "https://github.com/Somto811/UniBorg"), custom.Button.url("Best Prank Ever", "https://da.gd/OpvE3")],
+                        "Source Code", "https://github.com/SnapDragon7410/UniBorg"), custom.Button.url("Best Prank Ever", "https://da.gd/OpvE3")],
                     [custom.Button.url(
                         "Deploy to Heroku", "http://da.gd/SnapBorg"), custom.Button.url("Fork Boost", "https://telegra.ph/Fork-Boost-07-28"), custom.Button.url("Premium Dyno Cheat", "https://telegra.ph/Premium-Dyno-Cheat-07-28")]
                 ],
@@ -273,7 +317,7 @@ All instructions to run @UniBorg in your device has been explained in https://gi
 def paginate_help(page_number, loaded_plugins, prefix):
     number_of_rows = Config.NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD
     number_of_cols = 2
-    multi = "😇🤠🤡😈👿👹👺💀☠👻👽👾🤖💩😺😸😹😻😼😽🙀😿😾🙈🙉🙊👦👧👨👩👴👵👶😊❤️😜😌😚😁😎👨‍💻🥶🤒👍🤝🙌🦋🦌🦚🦜🏆🚴‍♂✈️💯📣🇳🇬"
+    multi = "😇🤠🤡😈👿👹👺💀☠👻👽👾🤖💩😺😸😹😻😼😽🙀😿😾🙈🙉🙊👦👧👨👩👴👵👶"
     helpable_plugins = []
     for p in loaded_plugins:
         if not p.startswith("_"):
@@ -295,3 +339,12 @@ def paginate_help(page_number, loaded_plugins, prefix):
              custom.Button.inline("Next", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
+
+def build_keyboard(buttons):
+    keyb = []
+    for btn in buttons:
+        if btn[2] and keyb:
+            keyb[-1].append(custom.Button.url(btn[0], btn[1]))
+        else:
+            keyb.append([custom.Button.url(btn[0], btn[1])])
+    return keyb
