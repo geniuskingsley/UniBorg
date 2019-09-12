@@ -192,7 +192,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             result = builder.article(
                 "Button Parser © @UniBorg",
                 text=f"Button Parser © @UniBorg",
-                buttons=[custom.Button.url("Source Code", "https://da.gd/YQgR7")],
+                buttons=[custom.Button.url("Source Code", "github.com/Somto811/UniBorg")],
                 link_preview=True
             )
         elif query.startswith("c_button"):
@@ -245,12 +245,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text="""Hi there. I will introduce you to UniBorg
 You can log-in as Bot or User and do many cool things with your Telegram account.
 
-All instructions to run @UniBorg in your device has been explained in https://github.com/SnapDragon7410/UniBorg""",
+All instructions to run @UniBorg in your device has been explained in https://github.com/Somto811/UniBorg""",
                 buttons=[
-                    [custom.Button.url("Contact the Creator", "https://telegram.dog/snappy101"), custom.Button.url(
+                    [custom.Button.url("Contact the Creator", "https://telegram.dog/loxxi"), custom.Button.url(
                         "Tutorial", "https://telegra.ph/Tutorial-07-26")],
                     [custom.Button.url(
-                        "Source Code", "https://github.com/SnapDragon7410/UniBorg"), custom.Button.url("Best Prank Ever", "https://da.gd/OpvE3")],
+                        "Source Code", "https://github.com/Somto811/UniBorg"), custom.Button.url("Best Prank Ever", "https://da.gd/OpvE3")],
                     [custom.Button.url(
                         "Deploy to Heroku", "http://da.gd/SnapBorg"), custom.Button.url("Fork Boost", "https://telegra.ph/Fork-Boost-07-28"), custom.Button.url("Premium Dyno Cheat", "https://telegra.ph/Premium-Dyno-Cheat-07-28")]
                 ],
@@ -317,7 +317,7 @@ All instructions to run @UniBorg in your device has been explained in https://gi
 def paginate_help(page_number, loaded_plugins, prefix):
     number_of_rows = Config.NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD
     number_of_cols = 2
-    multi = "😇🤠🤡😈👿👹👺💀☠👻👽👾🤖💩😺😸😹😻😼😽🙀😿😾🙈🙉🙊👦👧👨👩👴👵👶"
+    multi = "😇🤠🤡😈👿👹👺💀☠👻👽👾🤖💩😺😸😹😻😼😽🙀😿😾🙈🙉🙊👦👧👨👩👴👵👶😊❤️😜😌😚😁😎👨‍💻🥶🤒👍🤝🙌🦋🦌🦚🦜🏆🚴‍♂✈️💯📣🇳🇬"
     helpable_plugins = []
     for p in loaded_plugins:
         if not p.startswith("_"):
