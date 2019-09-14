@@ -5,7 +5,7 @@ from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="dump ?(.*)"))
 async def _(message):
-    if event.fwd_from:
+    if message.fwd_from:
         return
     try:
         obj = message.pattern_match.group(1)
@@ -26,6 +26,7 @@ async def _(message):
             try:
                 await message.edit(something_else)
             except errors.MessageIdInvalidError:
+                await message.edit("u dun goofed m8")
                 return
 
             
