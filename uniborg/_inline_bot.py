@@ -21,7 +21,7 @@ async def _(event):
     search_query = event.pattern_match.group(2)
     try:
         output_message = ""
-        bot_results = await borg.inline_query(  # pylint:disable=E0602
+        bot_results = await event.client.inline_query(  # pylint:disable=E0602
             bot_username,
             search_query
         )
@@ -50,7 +50,7 @@ async def _(event):
     i_plus_oneth_result = event.pattern_match.group(2)
     search_query = event.pattern_match.group(3)
     try:
-        bot_results = await borg.inline_query(  # pylint:disable=E0602
+        bot_results = await event.client.inline_query(  # pylint:disable=E0602
             bot_username,
             search_query
         )
@@ -192,11 +192,11 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             result = builder.article(
                 "Button Parser © @UniBorg",
                 text=f"Button Parser © @UniBorg",
-                buttons=[custom.Button.url("Source Code", "github.com/Somto811/UniBorg")],
+                buttons=[custom.Button.url("Source Code", "https://da.gd/YQgR7")],
                 link_preview=True
             )
         elif query.startswith("c_button"):
-            BTN_URL_REGEX = re.compile(r"(\{([^\[]+?)\}\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
+            BTN_URL_REGEX = re.compile(r"(\{([^\[]+?)\}\<button(url|text):(?:/{0,2})(.+?)(:same)?\>)")
             reply_message = query.replace("c_button ", "")
             markdown_note = reply_message
             prev = 0
@@ -213,7 +213,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 # if even, not escaped -> create button
                 if n_escapes % 2 == 0:
                     # create a thruple with button label, url, and newline status
-                    buttons.append((match.group(2), match.group(3), bool(match.group(4))))
+                    buttons.append((match.group(2), match.group(4), bool(match.group(5))))
                     note_data += markdown_note[prev:match.start(1)]
                     prev = match.end(1)
         
@@ -225,7 +225,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 note_data += markdown_note[prev:]
 
             message_text = note_data.strip()
-            tl_ib_buttons = build_keyboard(buttons)
+            tl_ib_buttons = build_keyboard(buttons, match.group(3))
         
             # logger.info(message_text)
             # logger.info(tl_ib_buttons)
@@ -234,7 +234,7 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 result = builder.article(
                     "Button Generated" if tl_ib_buttons else "Proccessing..." ,
                     text=message_text if tl_ib_buttons else "Error",
-                    buttons=tl_ib_buttons if tl_ib_buttons else [custom.Button.inline("Error", "Please Do Not Press Proccessing... Again")],
+                    buttons=tl_ib_buttons if tl_ib_buttons else [custom.Button.inline("Error", data="txt_prod_Please Do Not Press Proccessing... Again")],
                     link_preview=True
                 )
             except ButtonUrlInvalidError:
@@ -245,12 +245,12 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text="""Hi there. I will introduce you to UniBorg
 You can log-in as Bot or User and do many cool things with your Telegram account.
 
-All instructions to run @UniBorg in your device has been explained in https://github.com/Somto811/UniBorg""",
+All instructions to run @UniBorg in your device has been explained in https://github.com/SnapDragon7410/UniBorg""",
                 buttons=[
-                    [custom.Button.url("Contact the Creator", "https://telegram.dog/loxxi"), custom.Button.url(
+                    [custom.Button.url("Contact the Creator", "https://telegram.dog/snappy101"), custom.Button.url(
                         "Tutorial", "https://telegra.ph/Tutorial-07-26")],
                     [custom.Button.url(
-                        "Source Code", "https://github.com/Somto811/UniBorg"), custom.Button.url("Best Prank Ever", "https://da.gd/OpvE3")],
+                        "Source Code", "https://github.com/SnapDragon7410/UniBorg"), custom.Button.url("Best Prank Ever", "https://da.gd/OpvE3")],
                     [custom.Button.url(
                         "Deploy to Heroku", "http://da.gd/SnapBorg"), custom.Button.url("Fork Boost", "https://telegra.ph/Fork-Boost-07-28"), custom.Button.url("Premium Dyno Cheat", "https://telegra.ph/Premium-Dyno-Cheat-07-28")]
                 ],
@@ -292,6 +292,14 @@ All instructions to run @UniBorg in your device has been explained in https://gi
         else:
             reply_pop_up_alert = "Please get your own @UniBorg, and don't edit my messages!"
             await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
+
+    @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
+        data=re.compile(b"txt_prod_(.*)")
+    ))
+    async def on_plug_in_callback_query_handler(event):
+        reply_pop_up_alert = event.data_match.group(1).decode("UTF-8")
+        await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
 
     @tgbot.on(events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -340,11 +348,16 @@ def paginate_help(page_number, loaded_plugins, prefix):
         ]
     return pairs
 
-def build_keyboard(buttons):
+def build_keyboard(buttons, tipe):
     keyb = []
     for btn in buttons:
-        if btn[2] and keyb:
+        if btn[2] and keyb and tipe == "url":
             keyb[-1].append(custom.Button.url(btn[0], btn[1]))
-        else:
+        elif tipe == "url":
             keyb.append([custom.Button.url(btn[0], btn[1])])
+        if btn[2] and keyb and tipe == "text":
+            keyb[-1].append(custom.Button.inline(btn[0], data="txt_prod_{}".format(btn[1])))
+        elif tipe == "text":
+            keyb.append([custom.Button.inline(btn[0], data="txt_prod_{}".format(btn[1]))])
     return keyb
+
