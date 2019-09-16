@@ -11,9 +11,8 @@ This Module also Needs DB_URI For Storage of Some Data So make sure you have tha
 Credits:
 @Hackintosh5 (for inspiring me to write this module)
 @Zero_cool7870 (For Writing The Original Module)
-@loxxi for modifications
-Zi Xing (For CoffeeHouse API)"""
-
+Zi Xing (For CoffeeHouse API)
+@loxxi (For modification) """
 
 import coffeehouse as cf
 
@@ -61,7 +60,7 @@ async def lydia_disable_enable(event):
             if len(output_str) > Config.MAX_MESSAGE_SIZE_LIMIT:
                 with io.BytesIO(str.encode(output_str)) as out_file:
                     out_file.name = "lydia_ai.text"
-                    await borg.send_file(
+                    await event.client.send_file(
                         event.chat_id,
                         out_file,
                         force_document=True,
