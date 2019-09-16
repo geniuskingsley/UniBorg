@@ -245,14 +245,14 @@ if Config.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
                 text="""Hi there. I will introduce you to UniBorg
 You can log-in as Bot or User and do many cool things with your Telegram account.
 
-All instructions to run @UniBorg in your device has been explained in https://github.com/SnapDragon7410/UniBorg""",
+All instructions to run @UniBorg in your device has been explained in https://github.com/Somto811/UniBorg""",
                 buttons=[
-                    [custom.Button.url("Contact the Creator", "https://telegram.dog/snappy101"), custom.Button.url(
+                    [custom.Button.url("Contact the Creator", "https://telegram.dog/loxxi"), custom.Button.url(
                         "Tutorial", "https://telegra.ph/Tutorial-07-26")],
                     [custom.Button.url(
-                        "Source Code", "https://github.com/SnapDragon7410/UniBorg"), custom.Button.url("Best Prank Ever", "https://da.gd/OpvE3")],
+                        "Source Code", "https://github.com/Somto811/UniBorg"), custom.Button.url("Best Prank Ever", "https://da.gd/OpvE3")],
                     [custom.Button.url(
-                        "Deploy to Heroku", "http://da.gd/SnapBorg"), custom.Button.url("Fork Boost", "https://telegra.ph/Fork-Boost-07-28"), custom.Button.url("Premium Dyno Cheat", "https://telegra.ph/Premium-Dyno-Cheat-07-28")]
+                        "Deploy to Heroku", "http://github.com/Somto811/UniBorg"), custom.Button.url("Fork Boost", "https://telegra.ph/Fork-Boost-07-28"), custom.Button.url("Premium Dyno Cheat", "https://telegra.ph/Premium-Dyno-Cheat-07-28")]
                 ],
                 link_preview=False
             )
@@ -343,8 +343,8 @@ def paginate_help(page_number, loaded_plugins, prefix):
     if len(pairs) > number_of_rows:
         pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
             [
-            (custom.Button.inline("Previous", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("Next", data="{}_next({})".format(prefix, modulo_page)))
+            (custom.Button.inline("⏮", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("⏭", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
 
