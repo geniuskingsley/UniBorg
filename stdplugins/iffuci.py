@@ -45,7 +45,7 @@ async def _(event):
         message = "SYNTAX: `.iffuci <long text to include>`"
     url = "https://del.dog/documents"
     r = requests.post(url, data=message.encode("UTF-8")).json()
-    url = f"https://del.dog/{r['key']}"
+    url = f"https://iffuci.tk/{r['key']}"
     end = datetime.now()
     ms = (end - start).seconds
     if r["isUrl"]:
