@@ -42,13 +42,13 @@ async def _(event):
             message = previous_message.message
     else:
         message = "SYNTAX: `.paste <long text to include>`"
-    url = "https://del.dog/documents"
+    url = "https://iffuci.tk/documents"
     r = requests.post(url, data=message.encode("UTF-8")).json()
-    url = f"https://del.dog/{r['key']}"
+    url = f"https://iffuci.tk/{r['key']}"
     end = datetime.now()
     ms = (end - start).seconds
     if r["isUrl"]:
-        nurl = f"https://del.dog/v/{r['key']}"
+        nurl = f"https://iffuci.tk/v/{r['key']}"
         await event.edit("Dogged to {} in {} seconds. GoTo Original URL: {}".format(url, ms, nurl))
     else:
         await event.edit("Dogged to {} in {} seconds".format(url, ms))
