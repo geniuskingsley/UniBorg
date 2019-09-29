@@ -45,11 +45,11 @@ async def _(event):
         message = "SYNTAX: `.iffuci <long text to include>`"
     url = "https://del.dog/documents"
     r = requests.post(url, data=message.encode("UTF-8")).json()
-    url = f"https://iffuci.tk/{r['key']}"
+    url = f"https://del.dog/{r['key']}"
     end = datetime.now()
     ms = (end - start).seconds
     if r["isUrl"]:
         nurl = f"https://iffuci.tk/v/{r['key']}"
-        await event.edit("pasted to {} in {} seconds. GoTo Original URL: {}".format(url, ms, nurl))
+        await event.edit("code is pasted to {} in {} seconds. GoTo Original URL: {}".format(url, ms, nurl))
     else:
-        await event.edit("pasted to {} in {} seconds".format(url, ms))
+        await event.edit("code is pasted to {} in {} seconds".format(url, ms))
