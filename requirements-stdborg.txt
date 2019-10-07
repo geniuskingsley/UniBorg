@@ -5,6 +5,7 @@ beautifulsoup4
 cfscrape
 cryptg
 emoji
+cowpy
 googletrans
 google_images_download
 gtts
