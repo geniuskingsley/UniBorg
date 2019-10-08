@@ -9,7 +9,7 @@ from telethon.utils import get_input_location
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("ppg ?(.*)"))
+@@borg.on(admin_cmd(pattern="ppg ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -46,7 +46,7 @@ async def _(event):
     except Exception as e:
         dc_id = "Need a Profile Picture to check **this**"
         location = str(e)
-    caption = """Profile Pic Grabber By @r4v4n4
+    caption = """Profile Pic Grabber By @loxxi
 
 Rendi: <a href='tg://user?id={}'>{}</a>
 """.format(
