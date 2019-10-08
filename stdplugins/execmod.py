@@ -15,7 +15,7 @@ if not os.path.isdir("./SAVED"):
 if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
      os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
 
-@borg.on(admin_cmd(pattern="cpu"))
+@borg.on(admin_cmd(pattern="cpu ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
