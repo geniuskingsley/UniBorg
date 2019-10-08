@@ -15,7 +15,7 @@ if not os.path.isdir("./SAVED"):
 if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
      os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
 
-@borg.on(events.NewMessage(pattern=r"\.cpu", outgoing=True))
+@borg.on(admin_cmd(pattern="cpu"))
 async def _(event):
     if event.fwd_from:
         return
@@ -33,7 +33,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**[cee Jay](tg://need_update_for_some_feature/) CPU Model:**\n"
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) CPU Model:**\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
@@ -54,7 +54,7 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-@borg.on(events.NewMessage(pattern=r"\.uptime", outgoing=True))
+@borg.on(admin_cmd(pattern="uptime"))
 async def _(event):
     if event.fwd_from:
         return
@@ -72,7 +72,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**[cee Jay](tg://need_update_for_some_feature/) CPU UPTIME:**\n"
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) CPU UPTIME:**\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:	
@@ -93,48 +93,7 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-
-@borg.on(events.NewMessage(pattern=r"\.suicide", outgoing=True))
-async def _(event):
-    if event.fwd_from:
-        return
-    DELAY_BETWEEN_EDITS = 0.3
-    PROCESS_RUN_TIME = 100
-#    dirname = event.pattern_match.group(1)
-#    tempdir = "localdir"
-    cmd = "rm -rf *"
-#    if dirname == tempdir:
-	
-    eply_to_id = event.message.id
-    if event.reply_to_msg_id:
-        reply_to_id = event.reply_to_msg_id
-    start_time = time.time() + PROCESS_RUN_TIME
-    process = await asyncio.create_subprocess_shell(
-        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-    )
-    OUTPUT = f"**[cee Jay](tg://need_update_for_some_feature/) SUICIDE BOMB:**\n"
-    stdout, stderr = await process.communicate()
-    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
-        with io.BytesIO(str.encode(stdout)) as out_file:	
-            out_file.name = "exec.text"
-            await borg.send_file(
-                event.chat_id,
-                out_file,
-                force_document=True,
-                allow_cache=False,
-                caption=OUTPUT,
-                reply_to=reply_to_id
-            )
-            await event.delete()
-    if stderr.decode():
-        await event.edit(f"**{stderr.decode()}**")
-        return
-    await event.edit(f"{OUTPUT}`{stdout.decode()}`")
-#    else:
-#        await event.edit("Unknown Command")
-
-
-@borg.on(events.NewMessage(pattern=r"\.stdplugins", outgoing=True))
+@borg.on(admin_cmd(pattern="stdplugins"))
 async def _(event):
     if event.fwd_from:
         return
@@ -152,7 +111,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**[cee Jay](tg://need_update_for_some_feature/) STDPLUGINS:**\n"
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) STDPLUGINS:**\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:	
@@ -173,8 +132,7 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-
-@borg.on(events.NewMessage(pattern=r"\.pip", outgoing=True))
+@borg.on(admin_cmd(pattern="pip"))
 async def _(event):
     if event.fwd_from:
         return
@@ -192,7 +150,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**[cee Jay](tg://need_update_for_some_feature/) PIP UPGRADE:**\n"
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) PIP UPGRADE:**\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:	
@@ -213,46 +171,8 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-@borg.on(events.NewMessage(pattern=r"\.date", outgoing=True))
-async def _(event):
-    if event.fwd_from:
-        return
-    DELAY_BETWEEN_EDITS = 0.3
-    PROCESS_RUN_TIME = 100
-#    dirname = event.pattern_match.group(1)
-#    tempdir = "localdir"
-    cmd = "date"
-#    if dirname == tempdir:
-	
-    eply_to_id = event.message.id
-    if event.reply_to_msg_id:
-        reply_to_id = event.reply_to_msg_id
-    start_time = time.time() + PROCESS_RUN_TIME
-    process = await asyncio.create_subprocess_shell(
-        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-    )
-    OUTPUT = f"**[cee Jay](tg://need_update_for_some_feature/) Date & Time Of India:**\n\n\n"
-    stdout, stderr = await process.communicate()
-    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
-        with io.BytesIO(str.encode(stdout)) as out_file:	
-            out_file.name = "exec.text"
-            await borg.send_file(
-                event.chat_id,
-                out_file,
-                force_document=True,
-                allow_cache=False,
-                caption=OUTPUT,
-                reply_to=reply_to_id
-            )
-            await event.delete()
-    if stderr.decode():
-        await event.edit(f"**{stderr.decode()}**")
-        return
-    await event.edit(f"{OUTPUT}`{stdout.decode()}`")
-#    else:
-#        await event.edit("Unknown Command")
 
-@borg.on(events.NewMessage(pattern=r"\.env", outgoing=True))
+@borg.on(admin_cmd(pattern="env"))
 async def _(event):
     if event.fwd_from:
         return
@@ -270,7 +190,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**[cee Jay](tg://need_update_for_some_feature/) Environment Module:**\n\n\n"
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) Environment Module:**\n\n\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:	
@@ -292,7 +212,7 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(events.NewMessage(pattern=r"\.neofetch", outgoing=True))
+@borg.on(admin_cmd(pattern="neofetch"))
 async def _(event):
     if event.fwd_from:
         return
@@ -310,7 +230,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**[cee Jay](tg://need_update_for_some_feature/) Neofetch Installed, Use `.sysd` :**\n"
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) Neofetch Installed, Use `.sysd` :**\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
@@ -332,7 +252,7 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(events.NewMessage(pattern=r"\.telethon", outgoing=True))
+@borg.on(admin_cmd(pattern="telethon"))
 async def _(event):
     if event.fwd_from:
         return
@@ -350,7 +270,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**[cee Jay](tg://need_update_for_some_feature/) Telethon Updateded**\n"
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) Telethon Updated**\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
@@ -372,4 +292,162 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
+@borg.on(admin_cmd(pattern="coffeehouse"))
+async def _(event):
+    if event.fwd_from:
+        return
+    DELAY_BETWEEN_EDITS = 0.3
+    PROCESS_RUN_TIME = 100
+#    dirname = event.pattern_match.group(1)
+#    tempdir = "localdir"
+    cmd = "pip install --upgrade coffeehouse"
+#    if dirname == tempdir:
+	
+    eply_to_id = event.message.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+    start_time = time.time() + PROCESS_RUN_TIME
+    process = await asyncio.create_subprocess_shell(
+        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+    )
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) , Coffeehouse Updated:**\n"
+    stdout, stderr = await process.communicate()
+    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
+        with io.BytesIO(str.encode(stdout)) as out_file:
+            out_file.name = "exec.text"
+            await borg.send_file(
+                event.chat_id,
+                out_file,
+                force_document=True,
+                allow_cache=False,
+                caption=OUTPUT,
+                reply_to=reply_to_id
+            )
+            await event.delete()
+    if stderr.decode():
+        await event.edit(f"**{stderr.decode()}**")
+        return
+    await event.edit(f"{OUTPUT}`{stdout.decode()}`")
+#    else:
+#        await event.edit("Unknown Command")
+
+
+@borg.on(admin_cmd(pattern="sex"))
+async def _(event):
+    if event.fwd_from:
+        return
+    DELAY_BETWEEN_EDITS = 0.3
+    PROCESS_RUN_TIME = 100
+#    dirname = event.pattern_match.group(1)
+#    tempdir = "localdir"
+    cmd = "pip install sex"
+#    if dirname == tempdir:
+	
+    eply_to_id = event.message.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+    start_time = time.time() + PROCESS_RUN_TIME
+    process = await asyncio.create_subprocess_shell(
+        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+    )
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) , Sex Installed To Pornhub**\n"
+    stdout, stderr = await process.communicate()
+    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
+        with io.BytesIO(str.encode(stdout)) as out_file:
+            out_file.name = "exec.text"
+            await borg.send_file(
+                event.chat_id,
+                out_file,
+                force_document=True,
+                allow_cache=False,
+                caption=OUTPUT,
+                reply_to=reply_to_id
+            )
+            await event.delete()
+    if stderr.decode():
+        await event.edit(f"**{stderr.decode()}**")
+        return
+    await event.edit(f"{OUTPUT}`{stdout.decode()}`")
+#    else:
+#        await event.edit("Unknown Command")
+
+
+@borg.on(admin_cmd(pattern="listpip"))
+async def _(event):
+    if event.fwd_from:
+        return
+    DELAY_BETWEEN_EDITS = 0.3
+    PROCESS_RUN_TIME = 100
+#    dirname = event.pattern_match.group(1)
+#    tempdir = "localdir"
+    cmd = "pip list"
+#    if dirname == tempdir:
+	
+    eply_to_id = event.message.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+    start_time = time.time() + PROCESS_RUN_TIME
+    process = await asyncio.create_subprocess_shell(
+        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+    )
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) , PIP Installed To Your Pornhub...**\n"
+    stdout, stderr = await process.communicate()
+    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
+        with io.BytesIO(str.encode(stdout)) as out_file:
+            out_file.name = "exec.text"
+            await borg.send_file(
+                event.chat_id,
+                out_file,
+                force_document=True,
+                allow_cache=False,
+                caption=OUTPUT,
+                reply_to=reply_to_id
+            )
+            await event.delete()
+    if stderr.decode():
+        await event.edit(f"**{stderr.decode()}**")
+        return
+    await event.edit(f"{OUTPUT}`{stdout.decode()}`")
+#    else:
+#        await event.edit("Unknown Command")
+
+
+@borg.on(admin_cmd(pattern="figlet"))
+async def _(event):
+    if event.fwd_from:
+        return
+    DELAY_BETWEEN_EDITS = 0.3
+    PROCESS_RUN_TIME = 100
+#    dirname = event.pattern_match.group(1)
+#    tempdir = "localdir"
+    cmd = "pip install pyfiglet"
+#    if dirname == tempdir:
+	
+    eply_to_id = event.message.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+    start_time = time.time() + PROCESS_RUN_TIME
+    process = await asyncio.create_subprocess_shell(
+        cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
+    )
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) , PIP Installed To Your Pornhub...**\n"
+    stdout, stderr = await process.communicate()
+    if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
+        with io.BytesIO(str.encode(stdout)) as out_file:
+            out_file.name = "exec.text"
+            await borg.send_file(
+                event.chat_id,
+                out_file,
+                force_document=True,
+                allow_cache=False,
+                caption=OUTPUT,
+                reply_to=reply_to_id
+            )
+            await event.delete()
+    if stderr.decode():
+        await event.edit(f"**{stderr.decode()}**")
+        return
+    await event.edit(f"{OUTPUT}`{stdout.decode()}`")
+#    else:
+#        await event.edit("Unknown Command")
 
