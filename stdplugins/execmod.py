@@ -94,7 +94,8 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-@borg.on(admin_cmd(pattern="stdplugins"))
+
+@borg.on(events.NewMessage(pattern=r"stdplugins", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -439,7 +440,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) , PIP Installed To Your Pornhub...**\n"
+    OUTPUT = f"**[cee jay's](tg://need_update_for_some_feature/) , PIP Installed To uniborg ...**\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
