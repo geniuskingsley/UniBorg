@@ -15,7 +15,7 @@ import os
 from uniborg.util import admin_cmd
 
 
-EDIT_SLEEP_TIME_OUT = 15
+EDIT_SLEEP_TIME_OUT = 5
 # The port that RPC will listen on
 ARIA2_STARTED_PORT = 6800
 aria2 = None
