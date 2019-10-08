@@ -20,7 +20,7 @@ import shutil
 
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 
-@borg.on(admin_cmd("autopp ?(.*)"))
+@borg.on(admin_cmd(pattern="autopp ?(.*)"))
 async def autopic(event):
     downloaded_file_name = "./downloads/photo_2019-10-08_14-13-03.jpg"
     downloader = SmartDL(Config.loxxi_crew, downloaded_file_name, progress_bar=True)
