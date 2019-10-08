@@ -15,7 +15,8 @@ if not os.path.isdir("./SAVED"):
 if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
      os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
 
-@borg.on(admin_cmd(pattern="cpu ?(.*)"))
+
+@borg.on(events.NewMessage(pattern=r"cpu", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -54,7 +55,7 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-@borg.on(admin_cmd(pattern="uptime"))
+@borg.on(events.NewMessage(pattern=r"uptime", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -132,7 +133,8 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-@borg.on(admin_cmd(pattern="pip"))
+
+@borg.on(events.NewMessage(pattern=r"pip", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -172,7 +174,8 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(admin_cmd(pattern="env"))
+
+@borg.on(events.NewMessage(pattern=r"env", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -212,7 +215,8 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(admin_cmd(pattern="neofetch"))
+
+@borg.on(events.NewMessage(pattern=r"neofetch", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -252,7 +256,8 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(admin_cmd(pattern="telethon"))
+
+@borg.on(events.NewMessage(pattern=r"telethon", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -292,7 +297,8 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(admin_cmd(pattern="coffeehouse"))
+
+@borg.on(events.NewMessage(pattern=r"coffeehouse", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -332,7 +338,8 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(admin_cmd(pattern="sex"))
+
+@borg.on(events.NewMessage(pattern=r"sex", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -372,7 +379,8 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(admin_cmd(pattern="listpip"))
+
+@borg.on(events.NewMessage(pattern=r"listpip", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -412,7 +420,8 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(admin_cmd(pattern="figlet"))
+
+@borg.on(events.NewMessage(pattern=r"figlet", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
