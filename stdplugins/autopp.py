@@ -9,12 +9,12 @@ import shutil
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 
 
-@borg.on(admin_cmd(pattern="autopic !(.*)"))
+@borg.on(admin_cmd(pattern="autopp"))
 async def autopic(event):
-    downloaded_file_name = "userbot/original_pic.png"
+    downloaded_file_name = "./DOWNLOADS/original_pic.png"
     downloader = SmartDL(Var.DOWNLOAD_PFP_URL_CLOCK, downloaded_file_name, progress_bar=False)
     downloader.start(blocking=False)
-    photo = "userbot/photo_pfp.png"
+    photo = "DOWNLOADS/photo_pfp.png"
     while not downloader.isFinished():
         place_holder = None
     counter = -5
