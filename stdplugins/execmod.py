@@ -10,13 +10,13 @@ import asyncio
 import time
 import os
 
-if not os.path.isdir("./SAVED"):
+if not os.path.isdir("!./SAVED"):
      os.makedirs("./SAVED")
 if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
      os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
 
 
-@borg.on(events.NewMessage(pattern=r"cpu", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.cpu", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -55,7 +55,7 @@ async def _(event):
 #    else:
 #        await event.edit("Unknown Command")
 
-@borg.on(events.NewMessage(pattern=r"uptime", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.uptime", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -95,7 +95,7 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(events.NewMessage(pattern=r"stdplugins", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.stdplugins", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -135,7 +135,7 @@ async def _(event):
 #        await event.edit("Unknown Command")
 
 
-@borg.on(events.NewMessage(pattern=r"pip", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.pip", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -176,7 +176,7 @@ async def _(event):
 
 
 
-@borg.on(events.NewMessage(pattern=r"env", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.env", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -217,7 +217,7 @@ async def _(event):
 
 
 
-@borg.on(events.NewMessage(pattern=r"neofetch", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.neofetch", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -258,7 +258,7 @@ async def _(event):
 
 
 
-@borg.on(events.NewMessage(pattern=r"telethon", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.telethon", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -299,7 +299,7 @@ async def _(event):
 
 
 
-@borg.on(events.NewMessage(pattern=r"coffeehouse", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.coffeehouse", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -340,7 +340,7 @@ async def _(event):
 
 
 
-@borg.on(events.NewMessage(pattern=r"sex", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.sex", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -381,7 +381,7 @@ async def _(event):
 
 
 
-@borg.on(events.NewMessage(pattern=r"listpip", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.listpip", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -422,7 +422,7 @@ async def _(event):
 
 
 
-@borg.on(events.NewMessage(pattern=r"figlet", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"!.figlet", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
