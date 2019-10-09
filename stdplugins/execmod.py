@@ -11,7 +11,7 @@ import time
 import os
 
 if not os.path.isdir("!./SAVED"):
-     os.makedirs("./SAVED")
+     os.makedirs("!./SAVED")
 if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
      os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
 
