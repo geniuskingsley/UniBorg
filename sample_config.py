@@ -107,8 +107,9 @@ class Config(object):
     PM_LOGGR_BOT_API_ID = os.environ.get("PM_LOGGR_BOT_API_ID", None)
     if PM_LOGGR_BOT_API_ID:
         PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)
+     #
+    RAVANA_LEELA = os.environ.get("RAVANA_LEELA", None)
 
-    DOWNLOAD_PFP_URL_CLOCK = os.environ.get("DOWNLOAD_PFP_URL_CLOCK", None)
 class Production(Config):
     LOGGER = False
 
