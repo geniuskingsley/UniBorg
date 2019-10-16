@@ -1,5 +1,5 @@
 """
-G-Muter Plugin for userbot. //Needs MongoDB to work.
+G-Muter Plugin for userbot. //Needs MongoDB to work .
 cmds: .gmute user_id|reply to user messsage	//G-Mutes a User.
 	  .ungmute user_id|reply to user messsage //Un-Gmutes a User.
 	  .listgmuted //List Currently G-Muted Users.
@@ -109,8 +109,9 @@ async def gmute_listener(sender):
 			if c['user_id'] == sender.from_id:
 				await sender.delete()
 	except:
-		return 
+		return
 			
+
 
 
 
