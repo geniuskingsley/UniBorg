@@ -109,8 +109,9 @@ async def gmute_listener(sender):
 			if c['user_id'] == sender.from_id:
 				await sender.delete()
 	except:
-		return 
+		returny
 			
+
 
 
 
