@@ -101,7 +101,7 @@ async def remove_all(event):
 		os.system("aria2p remove-all")
 	await event.edit("`Removed All Downloads.`")  
 
-@borg.on(admin_cmd(pattern="show")), outgoing=True))
+@borg.on(admin_cmd(pattern="show ?(.*)", allow_sudo=True))
 async def show_all(event):
 	if event.fwd_from:
 		return
