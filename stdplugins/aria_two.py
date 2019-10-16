@@ -28,7 +28,7 @@ aria2 = aria2p.API(
 	)
 
 
-@borg.on(admin_cmd(pattern="addmagnet")), allow_sudo=True))
+@borg.on(admin_cmd(pattern="addmagnet")), outgoing=True))
 async def magnet_download(event):
 	if event.fwd_from:
 		return
@@ -52,7 +52,7 @@ async def magnet_download(event):
 	
 
 
-@borg.on(admin_cmd(pattern="addtorrent")), allow_sudo=True))
+@borg.on(admin_cmd(pattern="addtorrent")), outgoing=True))
 async def torrent_download(event):
 	if event.fwd_from:
 		return
@@ -68,7 +68,7 @@ async def torrent_download(event):
 	gid = download.gid
 	await progress_status(gid=gid,event=event,previous=None)
 
-@borg.on(admin_cmd(pattern="addurl")), allow_sudo=True))
+@borg.on(admin_cmd(pattern="addurl")), outgoing=True))
 async def magnet_download(event):
 	if event.fwd_from:
 		return
@@ -88,7 +88,7 @@ async def magnet_download(event):
 		new_gid = await check_metadata(gid)
 		await progress_status(gid=new_gid,event=event,previous=None)
 
-@borg.on(admin_cmd(pattern="ariaRM")), allow_sudo=True))
+@borg.on(admin_cmd(pattern="ariaRM")), outgoing=True))
 async def remove_all(event):
 	if event.fwd_from:
 		return
@@ -101,7 +101,7 @@ async def remove_all(event):
 		os.system("aria2p remove-all")
 	await event.edit("`Removed All Downloads.`")  
 
-@borg.on(admin_cmd(pattern="show")), allow_sudo=True))
+@borg.on(admin_cmd(pattern="show")), outgoing=True))
 async def show_all(event):
 	if event.fwd_from:
 		return
