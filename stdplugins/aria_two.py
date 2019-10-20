@@ -29,7 +29,7 @@ aria2 = aria2p.API(
 	)
 
 
-@borg.on(admin_cmd(pattern="addmagnet ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="magnet ?(.*)", allow_sudo=True))
 async def magnet_download(event):
 	if event.fwd_from:
 		return
@@ -53,7 +53,7 @@ async def magnet_download(event):
 	
 
 
-@borg.on(admin_cmd(pattern="addtorrent ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="ator ?(.*)", allow_sudo=True))
 async def torrent_download(event):
 	if event.fwd_from:
 		return
@@ -69,7 +69,7 @@ async def torrent_download(event):
 	gid = download.gid
 	await progress_status(gid=gid,event=event,previous=None)
 
-@borg.on(admin_cmd(pattern="addurl ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="url ?(.*)", allow_sudo=True))
 async def magnet_download(event):
 	if event.fwd_from:
 		return
