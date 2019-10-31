@@ -1,4 +1,3 @@
-Autopp made my @loxxi,this auto pp does not rotate pictures oof
 import os
 
 from datetime import datetime
