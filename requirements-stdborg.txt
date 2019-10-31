@@ -36,3 +36,4 @@ pymongo
 PyGithub
 lxml
 pytz
+anime-downloader
