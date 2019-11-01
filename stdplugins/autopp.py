@@ -47,7 +47,7 @@ async def autopic(event):
 
         now_utc = datetime.now(timezone('UTC'))
 
-        now_asia = now_utc.astimezone(timezone('Etc/GMT-2'))
+        now_asia = now_utc.astimezone(timezone('Etc/GMT-1'))
      
 
         current_time = now_asia.strftime("°°°°°°°°°°°°°°°\n Time: %I:%M:%p\n Date: %d-%m-%y\n°°°°°°°°°°°°°°°")
