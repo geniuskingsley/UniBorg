@@ -109,7 +109,7 @@ class Config(object):
     if PM_LOGGR_BOT_API_ID:
         PM_LOGGR_BOT_API_ID = int(PM_LOGGR_BOT_API_ID)
      #
-    RAVANA_LEELA = os.environ.get("RAVANA_LEELA", None)
+    LOXXI_CREW = os.environ.get("LOXXI_CREW", None)
 
 class Production(Config):
     LOGGER = False
