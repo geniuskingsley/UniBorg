@@ -37,4 +37,4 @@ PyGithub
 lxml
 pytz
 anime-downloader
-patoolib
+patool
